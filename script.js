@@ -45,3 +45,23 @@ function showTasks(){
     inputBox.value = ""; // Initialize the input box after the task has been added.
 }
 
+showTasks();
+
+addBtn.onclick = ()=>{ // when the user click the plus button.
+    let enteredValue = inputBox.value; // getting input field value.
+    let getLocalStorageData = localStorage.getItem("Todo List"); // get local storage data.
+
+    if(getLocalStorageData == null){
+        listArr = []; // if the local storage is empty, create a blank array.
+    }else{
+        listArr = JSON.parse(getLocalStorageData); //transforming json string into a js object.
+    }
+    
+    listArr.push(enteredValue); // adding a new value to the array.
+
+    localStorage.setItem("Todo List", JSON.stringify(listArr)); // trasform JS object into a JSON sting.
+
+    showTasks(); // call showTasks function to show the tasks.
+
+    addBtn.classList.remove("active"); // disable add button when the task was added
+}
