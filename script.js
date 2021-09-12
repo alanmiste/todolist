@@ -38,7 +38,7 @@ function showTasks(){
 
     let newTag = "";
     listArr.forEach((element, index) => { // this to create HTML element for each element in the array.
-        newTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class=fas fa-trash"></i></span></li>`;        
+        newTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;        
     });
     todoList.innerHTML = newTag; // adding new li tag inside ul tag.
 
@@ -65,3 +65,26 @@ addBtn.onclick = ()=>{ // when the user click the plus button.
 
     addBtn.classList.remove("active"); // disable add button when the task was added
 }
+
+
+// delete task function
+function deleteTask(index){
+    let getLocalStorageData = localStorage.getItem("Todo List");
+    listArr = JSON.parse(getLocalStorageData);
+    listArr.splice(index, 1); //delete or remove the li
+    localStorage.setItem("Todo List", JSON.stringify(listArr));
+    showTasks(); //call the showTasks function
+  }
+  
+  // delete all tasks function
+  deleteAllBtn.onclick = ()=>{
+    let getLocalStorageData = localStorage.getItem("Todo List"); //getting localstorage
+    if(getLocalStorageData == null){ //if localstorage has no data
+      listArr = []; //create a blank array
+    }else{
+      listArr = JSON.parse(getLocalStorageData);  //transforming json string into a js object
+      listArr = []; //create a blank array
+    }
+    localStorage.setItem("Todo List", JSON.stringify(listArr)); //set the item in localstorage
+    showTasks(); //call the showTasks function
+  }

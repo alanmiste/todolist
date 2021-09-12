@@ -89,3 +89,44 @@
       color: rgba(0, 163, 122, 0.692);
       padding: 15px;
   }
+
+  .inputField button.active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .footer button.active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ------------ */
+
+  .todoList li{
+    position: relative;
+    list-style: none;
+    margin-bottom: 8px;
+    background: #f2f2f2;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: default;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  .todoList li .icon{
+    position: absolute;
+    right: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e74c3c;
+    width: 45px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .todoList li:hover .icon{
+    right: 0px;
+  }
