@@ -38,7 +38,8 @@ function showTasks(){
 
     let newTag = "";
     listArr.forEach((element, index) => { // this to create HTML element for each element in the array.
-        newTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;        
+        //<i class="fas fa-edit"></i>
+        newTag += `<li><span class="icon1" onclick="deleteTask(${index})"><i class="fas fa-edit"></i></span>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;        
     });
     todoList.innerHTML = newTag; // adding new li tag inside ul tag.
 

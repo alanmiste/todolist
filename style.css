@@ -130,3 +130,22 @@
   .todoList li:hover .icon{
     right: 0px;
   }
+
+
+  .todoList li .icon1{
+    position: absolute;
+    right: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fdba00;
+    width: 45px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 3px 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .todoList li:hover .icon1{
+    right: 40px;
+  }
