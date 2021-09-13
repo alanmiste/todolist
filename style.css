@@ -86,7 +86,7 @@
       transition: all 0.3s ease;
   }
   .fa-clipboard-check{
-      color: rgba(0, 163, 122, 0.692);
+      color: #00db66;
       padding: 15px;
   }
 
@@ -113,6 +113,9 @@
     overflow: hidden;
     word-wrap: break-word;
   }
+
+ /*------ delete button ------*/
+
   .todoList li .icon{
     position: absolute;
     right: -45px;
@@ -131,6 +134,7 @@
     right: 0px;
   }
 
+  /*------ edit button ------*/
 
   .todoList li .icon1{
     position: absolute;
@@ -147,5 +151,41 @@
     transition: all 0.5s ease;
   }
   .todoList li:hover .icon1{
-    right: 40px;
+    right: 45px;
   }
+
+
+  /*------ after edit button ------*/
+
+  .todoList li .icon2{
+    position: absolute;
+    right: 0px;
+    top: 0%;
+    /* transform: translateY(0%); */
+    background: #00db66;
+    width: 45px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 3px 3px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  .todoList li:hover .icon2{
+    width: 90px;
+  }
+
+  /*------ edit input ------*/
+
+  .editInput{
+    width: 75%;
+    height: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    padding-left: 15px;
+}
+.editInput:focus{
+    border-color: #8E49E8;
+}

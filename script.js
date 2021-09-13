@@ -4,6 +4,7 @@ const addBtn = document.querySelector(".inputField button");
 const todoList = document.querySelector(".todoList");
 const deleteAllBtn = document.querySelector(".footer button");
 
+let _index;
 /* localStorage.setItem("name1","text text");
 localStorage.getItem("name1"); */
 
@@ -39,7 +40,7 @@ function showTasks(){
     let newTag = "";
     listArr.forEach((element, index) => { // this to create HTML element for each element in the array.
         //<i class="fas fa-edit"></i>
-        newTag += `<li><span class="icon1" onclick="deleteTask(${index})"><i class="fas fa-edit"></i></span>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;        
+        newTag += `<li class="li${index}"><span class="icon1" onclick="editTask(${index})"><i class="fas fa-edit"></i></span>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;        
     });
     todoList.innerHTML = newTag; // adding new li tag inside ul tag.
 
@@ -77,6 +78,24 @@ function deleteTask(index){
     showTasks(); //call the showTasks function
   }
   
+
+  function editTask(index){
+    let getLocalStorageData = localStorage.getItem("Todo List");
+    listArr = JSON.parse(getLocalStorageData);
+    console.log("from editTask: "+ listArr[index])
+    inputBox.value = listArr[index];
+    _index = index;
+    listArr[index] = "";
+    let editLi = document.querySelector(`.li${index}`);
+    console.log(editLi)
+    editLi.innerHTML = `<input class="editInput" type="text" placeholder="Edit your todo"><span class="icon2" onclick="editTask(${index})"><i class="fas fa-check"></i>`;
+    // listArr.splice(index, 1); //delete or remove the li
+    console.log(_index)
+    localStorage.setItem("Todo List", JSON.stringify(listArr));
+    // showTasks(); //call the showTasks function
+  }
+
+
   // delete all tasks function
   deleteAllBtn.onclick = ()=>{
     let getLocalStorageData = localStorage.getItem("Todo List"); //getting localstorage
