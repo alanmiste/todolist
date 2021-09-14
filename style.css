@@ -189,3 +189,13 @@
 .editInput:focus{
     border-color: #8E49E8;
 }
+
+footer small a{
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: center;
+  cursor:pointer;
+  text-decoration: none;
+  color:azure;
+}

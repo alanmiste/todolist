@@ -1,13 +1,11 @@
+/* This code was written by Alan Miste
+You can contact me on Twitter @AlanMiste */
+
 // getting all required elements.
 const inputBox = document.querySelector(".inputField input");
 const addBtn = document.querySelector(".inputField button");
 const todoList = document.querySelector(".todoList");
 const deleteAllBtn = document.querySelector(".footer button");
-
-let _index;
-/* localStorage.setItem("name1","text text");
-localStorage.getItem("name1"); */
-
 
 // on key uo event
 inputBox.onkeyup = () => {
