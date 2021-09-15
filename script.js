@@ -10,12 +10,15 @@ const deleteAllBtn = document.querySelector(".footer button");
 // on key uo event
 inputBox.onkeyup = () => {
     let enteredValue = inputBox.value; // getting user entered value
-
-    if (enteredValue.trim() != 0) { // to check if the user entered some values
+    if (enteredValue.trim().length) { // to check if the user entered some values
         // The trim() method removes whitespace from both ends of a string.
         addBtn.classList.add("active"); // active the add button.
+        addBtn.addEventListener("click",addOnClick); // to add Eventlistener to the button to run addOnClick function
+        addBtn.disabled = false; // to active the button
     } else {
         addBtn.classList.remove("active"); // disable the add button.
+       
+
     }
 }
 
@@ -47,10 +50,11 @@ function showTasks() {
 
 showTasks();
 
-addBtn.onclick = () => { // when the user click the plus button.
+function addOnClick (){ // when the user click the plus button.
     let enteredValue = inputBox.value; // getting input field value.
     let getLocalStorageData = localStorage.getItem("Todo List"); // get local storage data.
-
+    addBtn.disabled = true;
+    addBtn.removeEventListener("click",addOnClick);
     if (getLocalStorageData == null) {
         listArr = []; // if the local storage is empty, create a blank array.
     } else {
